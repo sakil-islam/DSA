@@ -57,6 +57,23 @@ function orderAgnosticBinarySearch(arrayOfItems, targetItem) {
 		}
 		return count;
 	}
+	// if (foundAt != undefined) {
+    //     for (let i = foundAt + 1; i <= arr.length - 1; i++) {
+    //         if (target === arr[i]) {
+    //             count++;
+    //         }
+    //     }
+    //     for (let i = foundAt; i >= 0; i--) {
+    //         if (target === arr[i]) {
+    //             count++;
+    //         }
+    //         else {
+    //             break;
+    //         }
+    //     }
+    //     // console.log(foundAt);
+    //     return count;
+    // }
 	return -1;
 }
 
