@@ -1,22 +1,19 @@
-function binarySearch(arr, target) {
-    let left = 0;
-    let right = arr.length - 1;
-    if(arr[end] <= target){
-        return arr[0];
-      }
-    while (left <= right) {
-       let mid = left + (right - left) / 2;
-       if (arr[mid] <= target) {
-          left ++;
+var nextGreatestLetter = function(letters, target) {
+   let left = 0;
+   let right = letters.length - 1
+   while(left <= right) {
+       const mid = Math.trunc((left+right)/2)
+       
+       if (letters[mid] <= target) {
+           left = mid + 1
        } else {
-          right --;
-       };
-    };
-    if (left == arr.length) {
-       return arr[0];
-    };
-    return arr[left];
- };
-console.log(binarySearch(["c", "f", "j"], "c"));
- // not solved0
+           right = mid - 1
+       }
+   }
+   if (left > letters.length - 1) {
+       return letters[0]
+   }
+   return letters[left]
+};
+console.log(nextGreatestLetter(["c", "f", "j"], "c"));
 
