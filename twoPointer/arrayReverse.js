@@ -57,3 +57,14 @@ function multiplyAll(arr) {
 }
 
 multiplyAll([[1, 2], [3, 4], [5, 6, 7]]);
+
+let array2 = [5, 4, 11, 6];
+let nestedLoopArrayReverse = function (arr) {
+    let length = arr.length;
+    for (let i = 0; i < length - 1; i++) {
+        arr.push(arr.shift())
+    }
+    return arr;
+}
+
+console.log(nestedLoopArrayReverse(array2));
