@@ -1,63 +1,40 @@
-// run perfectly but not accepted
+// var sortedSquares = function (nums) {
+//     let arr = []
+//     for (let i = 0; i < nums.length; i++) {
+//         arr.push(nums[i] * nums[i])
 
-let array = [-4, -1, 0, 3, 10];
-let newArray = [];
+//     }
+//     return arr.sort(function (a, b) { return a - b });
+// };
 
-array = array.map(number => number ** 2);
-console.log(array);
+//one liner approach 
 
-function mergeSortFunc(array, l, r) {
-    if (l < r) {
-        let mid = Math.floor((l + r) / 2);
-        mergeSortFunc(array, l, mid); // left
-        mergeSortFunc(array, mid + 1, r); // right
+// var sortedSquares = function (nums) {
+//   return nums.map((item) => item * item).sort(function (a, b) { return a - b });
+// };
 
-        // here sub-arrayay is already sorted
 
-        mergeSubarray(array, l, mid, r);
-    }
-}
+// two pointer approach 
 
-function mergeSubarray(array, l, mid, r) {
-    let i = l;
-    let j = mid + 1;
-    let k = i;
+var sortedSquares = function (nums) {
+    let left = 0
+    let right = nums.length - 1
+    let result = []
+    let position = nums.length - 1
 
-    while (i <= mid && j <= r) {
-        if (array[i] <= array[j]) {
-            newArray[k] = array[i];
-            i++;
+    while (left <= right) {
+        if (nums[left] ** 2 > nums[right] ** 2) {
+            result[position] = nums[left] ** 2
+            position--
+            left++
         }
         else {
-            newArray[k] = array[j];
-            j++;
-        }
-        k++;
-    }
+            result[position] = nums[right] ** 2
+            position--
+            right--
 
-    // copy rest values
-    if (i > mid) {
-        while (j <= r) {
-            newArray[k] = array[j];
-            j++;
-            k++;
-        }
-    }
-    else {
-        while (i <= mid) {
-            newArray[k] = array[i];
-            i++;
-            k++;
         }
     }
 
-    // copy to original array
-    for (let z = l; z <= r; z++) {
-        array[z] = newArray[z];
-    }
-}
-
-
-mergeSortFunc(array, 0, array.length - 1);
-console.log(array);
-
+    return result
+};
