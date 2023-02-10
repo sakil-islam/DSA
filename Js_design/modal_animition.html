@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: all 0.5s ease-in-out;
+            transform: translateX(-100%);
+        }
+
+        .modal.show {
+            transform: translateX(0);
+        }
+
+        .modal-content {
+            background: #fff;
+            padding: 1rem;
+            border-radius: 5px;
+            width: 400px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            transition: all 0.5s ease-in-out;
+            transform: translateX(100%);
+        }
+
+        .modal-content.show {
+            transform: translateX(0);
+        }
+    </style>
+</head>
+
+<body>
+
+    <button id="modalBtn">Open Modal</button>
+
+    <div class="modal">
+        <div class="modal-content">
+            <p>This is the modal content</p>
+            <button id="closeBtn">Close</button>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $('#modalBtn').click(function () {
+            $('.modal').addClass('show');
+            $('.modal-content').addClass('show');
+        });
+
+        $('#closeBtn').click(function () {
+            $('.modal').removeClass('show');
+            $('.modal-content').removeClass('show');
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,51 @@
+<html>
+  <head>
+    <style>
+      .container {
+        width: 50%;
+        height: 50%;
+        position: relative;
+      }
+      .floating-window {
+        width: 40%;
+        height: 70%;
+        background-color: #FFC107;
+        position: absolute;
+        right: 0;
+        top: 15%;
+        transition: all 0.5s ease-in-out;
+        transform: translateX(100%);
+      }
+      .container.active .floating-window {
+        transform: translateX(0);
+      }
+      #toggle {
+        transition: transform 0.5s ease-in-out;
+      }
+      #toggle.active {
+        transform: rotate(180deg);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="floating-window">
+        <h1>Hello World!</h1>
+      </div>
+    </div>
+    <button id="toggle">Toggle Floating Window</button>
+    <script>
+      document.getElementById("toggle").addEventListener("click", function() {
+        var container = document.querySelector(".container");
+        var button = document.getElementById("toggle");
+        if (container.classList.contains("active")) {
+          container.classList.remove("active");
+          button.classList.remove("active");
+        } else {
+          container.classList.add("active");
+          button.classList.add("active");
+        }
+      });
+    </script>
+  </body>
+</html>
