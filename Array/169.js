@@ -1,5 +1,6 @@
 // 169. Majority Element
 
+// O(n) & O(n)
 var majorityElement = function (nums) {
     let n = nums.length;
     const myObject = {}
@@ -19,3 +20,23 @@ var majorityElement = function (nums) {
 
 console.log(majorityElement([3, 2, 3]));
 console.log(majorityElement([2, 2, 1, 1, 1, 2, 2]));
+
+
+// O(n) & O(1)
+// var majorityElement = function (nums) {
+//     let candidate;
+//     let count = 0;
+
+//     for (const num of nums) {
+//         console.log(num, candidate, nums, count, "start");
+//         if (count === 0) {
+//             candidate = num;
+//             console.log(num, candidate, nums, count, "middle");
+//         }
+
+//         count += (num === candidate) ? 1 : -1
+//         console.log(num, candidate, nums, count, "end");
+//     }
+
+//     return candidate;
+// };
