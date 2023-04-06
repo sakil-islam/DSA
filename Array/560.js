@@ -18,7 +18,21 @@ var subarraySum = function (nums, k) {
     return count;
 };
 
+
+var subarraySumBF = function (nums, k) {
+    let counter = 0;
+    for (let i = 0; i < nums.length; i++) {
+        let base = 0;
+        for (let j = i; j < nums.length; j++) {
+            base += nums[j];
+            if (base == k) counter++;
+        }
+    }
+    return counter;
+};
+
 // console.log(subarraySum([1, 1, 1], 2));
 // console.log(subarraySum([1, 2, 3], 3));
 // console.log(subarraySum([3, 4, 7, -2, 2, 1, 4, 2], 7));
 console.log(subarraySum([-4, 3, 6, -2, 1, -1, 0, 2, -2, 3, 1], 5));
+console.log(subarraySumBF([-4, 3, 6, -2, 1, -1, 0, 2, -2, 3, 1], 5));
